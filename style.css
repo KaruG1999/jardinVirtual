@@ -1,0 +1,720 @@
+/* Importar fuentes pixel/medieval */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&family=UnifrakturCook:wght@700&display=swap');
+
+/* Paleta de colores bosque mágico */
+:root {
+  --forest-dark: #142815;       /* Verde musgo oscuro apagado */
+  --forest-medium: #264d36;     /* Verde bosque más suave */
+  --forest-light: #3f6b4b;      /* Verde hoja cálido */
+  --fairy-green: #9adcb9;       /* Verde hada pastel */
+  --fairy-light: #c6f5da;       /* Verde muy claro y fresco */
+  --fairy-glow: #e4fff1;        /* Casi blanco con toque verde mágico */
+  --mushroom-red: #d77979;      /* Rojo seta pastel (menos intenso) */
+  --bark-brown: #70543e;        /* Marrón madera suave y natural */
+  --flower-purple: #c1a1e2;     /* Lavanda mágica suave */
+  --magic-gold: #f3d97c;        /* Oro cálido y tenue */
+  --parchment: #f5f1e1;         /* Fondo tipo pergamino, crema claro */
+  --shadow-green: #6ea282;      /* Verde sombra suave */
+  --moss-green: #9bb86a;        /* Verde musgo natural claro */
+  --interior-color: #8cb1f2;    /* Azul hada suave para plantas de interior */
+  --exterior-color: #f4a36c;    /* Naranja cálido y otoñal para exterior */
+}
+
+
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'VT323', monospace;
+  background: var(--forest-dark);
+  color: var(--fairy-light);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fondo mágico del bosque */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(74, 222, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-medium) 100%);
+  z-index: -1;
+}
+
+/* Partículas mágicas flotantes */
+body::after {
+  content: '✨ ✦ ✧ ✨ ✦ ✧ ✨ ✦';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: var(--fairy-glow);
+  opacity: 0.3;
+  animation: sparkle 20s infinite linear;
+  pointer-events: none;
+  z-index: -1;
+  white-space: pre-wrap;
+  line-height: 100px;
+}
+
+@keyframes sparkle {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header con estilo libro mágico */
+.header {
+  background: linear-gradient(135deg, var(--forest-medium), var(--forest-light));
+  border: 4px solid var(--fairy-green);
+  border-image: 
+    repeating-linear-gradient(45deg, 
+      var(--fairy-green) 0px, 
+      var(--fairy-green) 4px, 
+      transparent 4px, 
+      transparent 8px
+    ) 4;
+  border-radius: 0;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(74, 222, 128, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.header::before {
+  content: '🍄 🧚🏻​ 🍄 ';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--forest-dark);
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  border: 2px solid var(--fairy-green);
+}
+
+#welcomeMessage {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: var(--fairy-glow);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.header h1 {
+  font-family: 'UnifrakturCook', serif;
+  font-size: 2.5rem;
+  color: var(--fairy-light);
+  text-shadow: 
+    2px 2px 0 var(--shadow-green),
+    0 0 20px rgba(74, 222, 128, 0.6);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Secciones principales */
+.content > div {
+  margin-bottom: 40px;
+}
+
+/* Títulos de sección */
+h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: var(--fairy-light);
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 var(--shadow-green);
+  position: relative;
+  padding-left: 40px;
+}
+
+
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Barra de búsqueda mágica */
+.search-section {
+  background: var(--parchment);
+  border: 3px solid var(--fairy-green);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 
+    0 0 20px rgba(74, 222, 128, 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.search-section::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, var(--fairy-green), var(--fairy-light));
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.search-section h2 {
+  color: var(--forest-dark);
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.search-container input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 15px;
+  border: 3px solid var(--moss-green);
+  border-radius: 0;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  background: white;
+  color: var(--forest-dark);
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: var(--fairy-green);
+  box-shadow: 
+    inset 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+.search-container input::placeholder {
+  color: var(--forest-light);
+  font-style: italic;
+}
+
+/* Botones mágicos */
+.btn-search, .btn-clear {
+  padding: 12px 20px;
+  border: 3px solid;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-search {
+  background: var(--fairy-green);
+  color: white;
+  border-color: var(--shadow-green);
+  box-shadow: 
+    3px 3px 0 var(--shadow-green),
+    0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.btn-clear {
+  background: var(--bark-brown);
+  color: white;
+  border-color: #654321;
+  box-shadow: 
+    3px 3px 0 #654321,
+    0 0 10px rgba(139, 69, 19, 0.3);
+}
+
+.btn-search:hover, .btn-clear:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    5px 5px 0 var(--shadow-green),
+    0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+.btn-search:hover::before, .btn-clear:hover::before {
+  left: calc(100% + 10px);
+}
+
+/* Formulario libro de hechizos */
+.form-section {
+  background: var(--parchment);
+  border: 4px solid var(--fairy-green);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 
+    0 0 30px rgba(74, 222, 128, 0.2),
+    inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-section::before {
+  content: 'MI COLECCION VERDE';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--forest-dark);
+  color: var(--fairy-light);
+  padding: 10px 20px;
+  border: 2px solid var(--fairy-green);
+  border-radius: 15px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+.form-section h2 {
+  color: var(--forest-dark);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: var(--forest-dark);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 3px solid var(--moss-green);
+  border-radius: 0;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  background: white;
+  color: var(--forest-dark);
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--fairy-green);
+  box-shadow: 
+    inset 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'VT323', monospace;
+}
+
+/* Botón agregar planta */
+.btn-add {
+  background: linear-gradient(135deg, var(--fairy-green), var(--fairy-light));
+  color: var(--forest-dark);
+  padding: 15px 30px;
+  border: 3px solid var(--shadow-green);
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    4px 4px 0 var(--shadow-green),
+    0 0 20px rgba(74, 222, 128, 0.3);
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.btn-add:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    6px 6px 0 var(--shadow-green),
+    0 0 30px rgba(74, 222, 128, 0.5);
+}
+
+.btn-add:hover::before {
+  left: 100%;
+}
+
+/* Sección de plantas - Registro botánico */
+.plants-section {
+  background: var(--parchment);
+  border: 4px solid var(--fairy-green);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 
+    0 0 30px rgba(74, 222, 128, 0.2),
+    inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.plants-section::before {
+  content: 'REGISTRO BOTÁNICO';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--forest-dark);
+  color: var(--fairy-light);
+  padding: 10px 20px;
+  border: 2px solid var(--fairy-green);
+  border-radius: 15px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+.plants-section h2 {
+  color: var(--forest-dark);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* Tarjetas de plantas estilo pixel */
+.plant-card {
+  background: white;
+  border: 4px solid var(--fairy-green);
+  border-radius: 0;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 
+    4px 4px 0 var(--shadow-green),
+    0 0 15px rgba(74, 222, 128, 0.2);
+}
+
+.plant-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--fairy-green), var(--fairy-light));
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.plant-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 
+    7px 7px 0 var(--shadow-green),
+    0 0 25px rgba(74, 222, 128, 0.4);
+}
+
+.plant-card:hover::before {
+  opacity: 1;
+}
+
+.plant-id {
+  font-family: 'VT323', monospace;
+  font-size: 12px;
+  color: var(--forest-light);
+  margin-bottom: 15px;
+  text-align: center;
+  background: var(--fairy-glow);
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid var(--fairy-green);
+}
+
+.plant-image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plant-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  border: 3px solid var(--fairy-green);
+  box-shadow: 
+    3px 3px 0 var(--shadow-green),
+    0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.plant-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  background: var(--fairy-light);
+  border: 3px solid var(--fairy-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0 auto;
+  box-shadow: 
+    3px 3px 0 var(--shadow-green),
+    0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.plant-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: var(--forest-dark);
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.plant-details {
+  margin-bottom: 20px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
+
+.plant-details > div {
+  margin-bottom: 10px;
+  color: var(--forest-dark);
+  padding: 5px 0;
+  border-bottom: 1px dotted var(--fairy-green);
+}
+
+.plant-details > div:last-child {
+  border-bottom: none;
+}
+
+.plant-type {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.type-interior {
+  background: var(--interior-color);
+  color: white;
+  border-color: #1e40af;
+}
+
+.type-exterior {
+  background: var(--exterior-color);
+  color: white;
+  border-color: #c2410c;
+}
+
+.plant-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-delete {
+  background: var(--mushroom-red);
+  color: white;
+  padding: 10px 20px;
+  border: 3px solid #991b1b;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 
+    3px 3px 0 #991b1b,
+    0 0 10px rgba(220, 38, 38, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-delete::before {
+  content: '💀';
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.btn-delete:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    5px 5px 0 #991b1b,
+    0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+.btn-delete:hover::before {
+  left: calc(100% + 10px);
+}
+
+/* Estado vacío */
+.empty-state {
+  text-align: center;
+  padding: 50px;
+  color: var(--forest-light);
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  font-style: italic;
+  position: relative;
+}
+
+.empty-state::before {
+  content: '¡Tu jardín está esperando sus primeras plantas mágicas!';
+  display: block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: var(--fairy-light);
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 var(--shadow-green);
+}
+
+/* Mensajes de estado */
+.error-message {
+  background: var(--mushroom-red);
+  color: white;
+  padding: 15px 20px;
+  border: 3px solid #991b1b;
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  margin-bottom: 20px;
+  box-shadow: 
+    3px 3px 0 #991b1b,
+    0 0 15px rgba(220, 38, 38, 0.3);
+}
+
+.success-message {
+  background: var(--fairy-green);
+  color: white;
+  padding: 15px 20px;
+  border: 3px solid var(--shadow-green);
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  margin-bottom: 20px;
+  box-shadow: 
+    3px 3px 0 var(--shadow-green),
+    0 0 15px rgba(74, 222, 128, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 14px;
+  }
+  
+  .search-container {
+    flex-direction: column;
+  }
+  
+  .search-container input,
+  .btn-search,
+  .btn-clear {
+    width: 100%;
+  }
+  
+  .plants-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-search,
+  .btn-clear,
+  .btn-add,
+  .btn-delete {
+    font-size: 10px;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(74, 222, 128, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.6); }
+}
+
+.plant-card:hover {
+  animation: glow 2s infinite;
+}
+
+/* Efectos de carga */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

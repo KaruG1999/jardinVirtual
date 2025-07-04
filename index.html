@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Enlace a estilos -->
+    <title>Mi Jardín Digital</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Mensaje de bienvenida y Nombre app -->
+      <div class="header">
+        <div id="welcomeMessage" class="welcome-message"></div>
+        <h1>Mi Jardín Digital</h1>
+      </div>
+      
+        <!-- Esqueleto de formulario -->
+        <div class="form-section">
+          <h2>Agregar Nueva Planta</h2>
+          <form id="plantForm">
+            <!-- Nombre de la planta -->
+            <div class="form-group">
+              <label for="plantName">Nombre de la planta:</label>
+              <input type="text" id="plantName" name="plantName" required placeholder="Ej: Rosa, Pothos, Cactus..." />
+              <!-- atributo required: indica que ese campo es obligatorio. -->
+            </div>
+            
+            <!-- Fecha de adquisición -->
+            <div class="form-group">
+              <label for="plantDate">Fecha de adquisición:</label>
+              <input type="date" id="plantDate" name="plantDate" required />
+            </div>
+            
+            <!-- Tipo de planta -->
+            <div class="form-group">
+              <label for="plantType">Tipo de planta:</label>
+              <select id="plantType" name="plantType" required>
+                <option value="">Selecciona el tipo</option>
+                <option value="Interior">Interior</option>
+                <option value="Exterior">Exterior</option>
+              </select>
+            </div>
+            
+            <!-- Cuidados especiales -->
+            <div class="form-group">
+              <label for="cuidadosEspeciales">Cuidados especiales:</label>
+              <textarea 
+                id="cuidadosEspeciales" 
+                name="cuidadosEspeciales" 
+                placeholder="Ej: Riego cada 3 días, luz indirecta, fertilizar mensualmente..."
+                rows="3"
+              ></textarea>
+            </div>
+            
+            <!-- Botón ok para agregar planta -->
+            <button type="submit" class="btn-add">Agregar Planta</button>
+          </form>
+        </div>
+
+        <div class="content">
+        <!-- Barra de búsqueda -->
+        <div class="search-section">
+          <h2>Buscar en tu jardín</h2>
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar plantas por nombre, tipo o cuidados..." />
+            <button onclick="buscarPlantas()" class="btn-search">Buscar</button>
+            <button onclick="mostrarPlantas()" class="btn-clear">Mostrar todas</button>
+          </div>
+        </div>
+
+        <!-- Seccion donde muestro plantas ingresadas -->
+        <div class="plants-section">
+          <h2>Tu Jardín Digital</h2>
+          <div id="plantsContainer" class="plants-grid"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Enlace js -->
+    <script src="./script.js"></script>
+  </body>
+</html>
