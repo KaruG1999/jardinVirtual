@@ -582,7 +582,6 @@ h2 {
 }
 
 .btn-delete::before {
-  content: '💀';
   position: absolute;
   top: 50%;
   left: -30px;
@@ -600,6 +599,54 @@ h2 {
 .btn-delete:hover::before {
   left: calc(100% + 10px);
 }
+
+/* agrego boton de mas detalles con estetica similar al delete */
+
+.btn-details {
+  background: var(--mushroom-green, #059669); /* usás la variable si existe o un verde */
+  color: white;
+  padding: 10px 20px;
+  border: 3px solid #065f46;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 
+    3px 3px 0 #065f46,
+    0 0 10px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-details::before {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+.btn-details:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    5px 5px 0 #065f46,
+    0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.btn-details:hover::before {
+  left: calc(100% + 10px);
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Estado vacío */
 .empty-state {
